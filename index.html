@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحميل تطبيق حمودي لإدارة الحسابات 📱</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-hover: #059669;
+            --primary-glow: rgba(16, 185, 129, 0.4);
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* الخلفية الحركية الناعمة */
+        .background-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(0,0,0,0) 70%);
+            top: 10%;
+            left: 10%;
+            z-index: -1;
+            filter: blur(40px);
+            animation: floatGlow 10s ease-in-out infinite alternate;
+        }
+
+        .background-glow-right {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, rgba(0,0,0,0) 70%);
+            bottom: 10%;
+            right: 10%;
+            z-index: -1;
+            filter: blur(50px);
+            animation: floatGlow 12s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 30px) scale(1.1); }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 580px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 32px;
+            padding: 40px 30px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            position: relative;
+        }
+
+        /* الشعار المستدير */
+        .logo-container {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 25px auto;
+            background: rgba(15, 23, 42, 0.6);
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            border-radius: 36px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .logo-container:hover {
+            transform: scale(1.08) rotate(3deg);
+            border-color: var(--primary);
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 26px;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 35px;
+            padding: 0 10px;
+        }
+
+        /* زر التحميل الفخم */
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: var(--primary);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 18px 35px;
+            border-radius: 20px;
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px var(--primary-glow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 35px;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.5);
+        }
+
+        .download-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .btn-text {
+            font-size: 18px;
+            line-height: 1.2;
+        }
+
+        .btn-subtext {
+            font-size: 12px;
+            opacity: 0.8;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .download-icon {
+            font-size: 28px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-6px); }
+            60% { transform: translateY(-3px); }
+        }
+
+        /* صندوق الإرشادات */
+        .instructions-box {
+            background: rgba(15, 23, 42, 0.4);
+            border-radius: 24px;
+            padding: 25px;
+            text-align: right;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .instructions-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .instructions-list {
+            list-style: none;
+        }
+
+        .instructions-list li {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 25px;
+            line-height: 1.5;
+        }
+
+        .instructions-list li::before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: rgba(148, 163, 184, 0.5);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                border-radius: 24px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .download-btn {
+                font-size: 18px;
+                padding: 16px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-glow"></div>
+    <div class="background-glow-right"></div>
+
+    <div class="container">
+        <!-- شعار التطبيق -->
+        <div class="logo-container">
+            <img class="logo-img" src="logo.png" alt="شعار تطبيق حمودي">
+        </div>
+
+        <!-- العنوان والوصف -->
+        <h1>تطبيق حمودي لإدارة الحسابات</h1>
+        <p class="subtitle">
+            النسخة الرسمية لتطبيق إدارة الزبائن، الموردين، الفواتير والديون بذكاء وسهولة مع ميزة المزامنة السحابية الفورية.
+        </p>
+
+        <!-- زر التحميل -->
+        <a href="app-release.apk" class="download-btn" download>
+            <span class="download-icon">⬇</span>
+            <div class="btn-info">
+                <span class="btn-text">تنزيل التطبيق للـ Android</span>
+                <span class="btn-subtext">حجم الملف: 51.9 ميجابايت (APK)</span>
+            </div>
+        </a>
+
+        <!-- تعليمات التثبيت -->
+        <div class="instructions-box">
+            <div class="instructions-title">
+                <span>⚙️</span> طريقة تثبيت التطبيق:
+            </div>
+            <ul class="instructions-list">
+                <li>اضغط على زر <b>تنزيل التطبيق</b> في الأعلى وسيتم بدء تحميل ملف الـ APK.</li>
+                <li>بعد انتهاء التنزيل، افتح الملف لبدء التثبيت.</li>
+                <li>إذا ظهر لك تحذير حماية، اضغط على <b>الإعدادات</b> وقم بتمكين <b>السماح بالتثبيت من هذا المصدر</b>.</li>
+                <li>عد لتثبيت التطبيق، ثم افتحه وابدأ استخدامه مباشرة!</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            جميع الحقوق محفوظة © 2026
+        </div>
+    </div>
+
+</body>
+</html>
