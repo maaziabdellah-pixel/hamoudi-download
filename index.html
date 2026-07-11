@@ -279,11 +279,11 @@
         </p>
 
         <!-- زر التحميل -->
-        <a href="app-release.apk" class="download-btn" download>
+        <a href="app-release.apk" id="download-link" class="download-btn" download>
             <span class="download-icon">⬇</span>
             <div class="btn-info">
                 <span class="btn-text">تنزيل التطبيق للـ Android</span>
-                <span class="btn-subtext">حجم الملف: 51.9 ميجابايت (APK)</span>
+                <span class="btn-subtext">تحديث: 11 يوليو 2026 - الساعة 06:10 مساءً</span>
             </div>
         </a>
 
@@ -305,5 +305,13 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const link = document.getElementById("download-link");
+            if (link) {
+                link.href = "app-release.apk?v=" + new Date().getTime();
+            }
+        });
+    </script>
 </body>
 </html>
